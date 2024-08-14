@@ -1,2 +1,33 @@
 # QR-code-genrator
-Developed a QR code generator using Python that allows for quick and easy creation of custom QR codes. This tool supports various data types, from URLs to text, and generates high-quality QR codes in seconds. Perfect for businesses, marketing, or personal projects, this solution simplifies sharing information and enhances user engagement. #Python
+import tkinter
+from tkinter import ttk
+from tkinter import messagebox
+import qrcode as qr
+
+
+def enter_data():
+    a=entry.get()
+    sal=qr.make(a)
+
+    sal.save("C:\mywork\python\experiment_dl\QR.png")
+
+
+window=tkinter.Tk()
+window.title("QR Genaroator")
+
+QR=tkinter.LabelFrame(text="QR")
+QR.grid(row=0,column=0,padx=20,pady=10)
+
+name=tkinter.Label(QR,text="QR Genaroator")
+name.grid(row=0,column=1)
+entry=tkinter.Entry(QR)
+entry.grid(row=0,column=1,padx=20,pady=20)
+
+
+button=tkinter.Button(QR,text="Button",command=enter_data)
+button.grid(row=0,column=3,sticky="news",padx=20,pady=10)
+
+
+
+
+window.mainloop()
